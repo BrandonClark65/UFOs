@@ -58,14 +58,19 @@ function updateFilters() {
   function filterTable() {
   
     // 8. Set the filtered data to the tableData.
-    
+    let filteredData = tableData; 
   
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
-    
+    for (var i=0; i<filters.lenght;i++) {
+      if (elementValue) {
+        filteredData = filteredData.filter(row => row.filterId === elementValue)
+      }
+    }
+      
   
     // 10. Finally, rebuild the table using the filtered data
-    
+    buildTable(filteredData);
   }
   
   // 2. Attach an event to listen for changes to each filter
